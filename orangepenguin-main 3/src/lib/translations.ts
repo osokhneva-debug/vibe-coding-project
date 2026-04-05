@@ -1,5 +1,9 @@
 export type Lang = "pt" | "en";
 
+export const WHATSAPP_NUMBER = "351916539331";
+export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
+export const PHONE_DISPLAY = "+351 916 539 331";
+
 export const translations = {
   nav: {
     links: {
@@ -152,7 +156,7 @@ export const translations = {
       en: "Send us a WhatsApp message — we'll show you your salon's demo site within 24 hours.",
     },
     button: { pt: "💬 Enviar mensagem no WhatsApp", en: "💬 Send a WhatsApp message" },
-    phone: { pt: "Ou ligue: +351 916 539 331", en: "Or call: +351 916 539 331" },
+    phone: { pt: `Ou ligue: ${"+351 916 539 331"}`, en: `Or call: ${"+351 916 539 331"}` },
   },
   pageTitle: {
     pt: "Orange Penguin — Sites para salões de beleza em Lisboa",

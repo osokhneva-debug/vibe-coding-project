@@ -1,4 +1,4 @@
-import { Lang, translations as t } from "@/lib/translations";
+import { Lang, translations as t, WHATSAPP_URL } from "@/lib/translations";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function HeroSection({ lang }: { lang: Lang }) {
@@ -25,7 +25,7 @@ export default function HeroSection({ lang }: { lang: Lang }) {
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
-          <a href="https://wa.me/351916539331" className="bg-orange text-primary-foreground font-body text-base font-semibold px-9 py-4 rounded-[14px] shadow-orange hover:opacity-90 transition-all">
+          <a href={WHATSAPP_URL} className="bg-orange text-primary-foreground font-body text-base font-semibold px-9 py-4 rounded-[14px] shadow-orange hover:opacity-90 transition-all">
             {t.hero.cta1[lang]}
           </a>
           <a href="#como-funciona" className="bg-card text-foreground font-body text-base font-semibold px-9 py-4 rounded-[14px] border border-border hover:border-orange/30 transition-all">
