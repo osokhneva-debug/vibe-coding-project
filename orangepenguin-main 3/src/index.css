@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 30 33% 97%;
+    --foreground: 0 0% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+
+    --primary: 20 81% 51%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 25 20% 94%;
+    --secondary-foreground: 0 0% 10%;
+
+    --muted: 25 10% 94%;
+    --muted-foreground: 25 10% 46%;
+
+    --accent: 20 81% 51%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 25 10% 90%;
+    --input: 25 10% 90%;
+    --ring: 20 81% 51%;
+
+    --radius: 1rem;
+
+    --cream: 30 33% 97%;
+    --cream-dark: 28 24% 92%;
+    --dark: 0 0% 10%;
+    --dark-card: 0 0% 18%;
+    --orange: 20 81% 51%;
+    --orange-light: 20 81% 51%;
+    --whatsapp: 145 63% 42%;
+    --muted-text: 25 10% 46%;
+
+    --shadow-card: 0 4px 24px rgba(0,0,0,0.06);
+    --shadow-card-hover: 0 12px 48px rgba(0,0,0,0.1);
+    --shadow-orange: 0 2px 12px rgba(232,98,28,0.25);
+    --shadow-whatsapp: 0 4px 20px rgba(37,211,102,0.3);
+
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease forwards;
+  opacity: 0;
+}
+
+.pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
