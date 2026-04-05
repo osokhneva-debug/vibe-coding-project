@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Lang, translations as t } from "@/lib/translations";
+import { Lang, translations as t, WHATSAPP_URL } from "@/lib/translations";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/logo.png";
 
@@ -31,17 +31,17 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
 
         {/* Right side - desktop */}
         <div className="hidden md:flex items-center gap-3">
-          <div className="flex rounded-btn overflow-hidden border border-border">
-            <button onClick={() => setLang("pt")} className={`px-3 py-1.5 text-sm font-medium transition-colors ${lang === "pt" ? "bg-orange text-primary-foreground" : "text-muted-foreground"}`}>PT</button>
-            <button onClick={() => setLang("en")} className={`px-3 py-1.5 text-sm font-medium transition-colors ${lang === "en" ? "bg-orange text-primary-foreground" : "text-muted-foreground"}`}>EN</button>
+          <div className="flex rounded-btn overflow-hidden border border-border" role="group" aria-label="Language selector">
+            <button onClick={() => setLang("pt")} aria-pressed={lang === "pt"} className={`px-3 py-1.5 text-sm font-medium transition-colors ${lang === "pt" ? "bg-orange text-primary-foreground" : "text-muted-foreground"}`}>PT</button>
+            <button onClick={() => setLang("en")} aria-pressed={lang === "en"} className={`px-3 py-1.5 text-sm font-medium transition-colors ${lang === "en" ? "bg-orange text-primary-foreground" : "text-muted-foreground"}`}>EN</button>
           </div>
-          <a href="https://wa.me/351916539331" className="bg-orange text-primary-foreground font-body text-sm font-medium px-5 py-2.5 rounded-btn shadow-orange hover:opacity-90 transition-opacity">
+          <a href={WHATSAPP_URL} className="bg-orange text-primary-foreground font-body text-sm font-medium px-5 py-2.5 rounded-btn shadow-orange hover:opacity-90 transition-opacity">
             {t.nav.cta[lang]}
           </a>
         </div>
 
         {/* Hamburger - mobile */}
-        <button className="md:hidden text-foreground" onClick={() => setOpen(true)}>
+        <button className="md:hidden text-foreground" onClick={() => setOpen(true)} aria-label="Open menu" aria-expanded={open}>
           <Menu size={24} />
         </button>
       </div>
@@ -51,15 +51,15 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
         <div className="fixed inset-0 z-50 md:hidden">
           <div className="absolute inset-0 bg-dark/40" onClick={() => setOpen(false)} />
           <div className="absolute right-0 top-0 h-full w-[280px] bg-cream-DEFAULT p-8 flex flex-col gap-6 shadow-card-hover" style={{ background: "#FDFAF7" }}>
-            <button className="self-end" onClick={() => setOpen(false)}><X size={24} /></button>
+            <button className="self-end" onClick={() => setOpen(false)} aria-label="Close menu"><X size={24} /></button>
             {t.nav.links[lang].map((link, i) => (
               <a key={i} href={t.nav.anchors[i]} onClick={() => setOpen(false)} className="font-body text-base font-medium text-foreground hover:text-orange transition-colors">{link}</a>
             ))}
-            <div className="flex rounded-btn overflow-hidden border border-border w-fit">
-              <button onClick={() => setLang("pt")} className={`px-3 py-1.5 text-sm font-medium transition-colors ${lang === "pt" ? "bg-orange text-primary-foreground" : "text-muted-foreground"}`}>PT</button>
-              <button onClick={() => setLang("en")} className={`px-3 py-1.5 text-sm font-medium transition-colors ${lang === "en" ? "bg-orange text-primary-foreground" : "text-muted-foreground"}`}>EN</button>
+            <div className="flex rounded-btn overflow-hidden border border-border w-fit" role="group" aria-label="Language selector">
+              <button onClick={() => setLang("pt")} aria-pressed={lang === "pt"} className={`px-3 py-1.5 text-sm font-medium transition-colors ${lang === "pt" ? "bg-orange text-primary-foreground" : "text-muted-foreground"}`}>PT</button>
+              <button onClick={() => setLang("en")} aria-pressed={lang === "en"} className={`px-3 py-1.5 text-sm font-medium transition-colors ${lang === "en" ? "bg-orange text-primary-foreground" : "text-muted-foreground"}`}>EN</button>
             </div>
-            <a href="https://wa.me/351916539331" className="bg-orange text-primary-foreground font-body text-sm font-medium px-5 py-3 rounded-btn shadow-orange text-center hover:opacity-90 transition-opacity">
+            <a href={WHATSAPP_URL} className="bg-orange text-primary-foreground font-body text-sm font-medium px-5 py-3 rounded-btn shadow-orange text-center hover:opacity-90 transition-opacity">
               {t.nav.cta[lang]}
             </a>
           </div>

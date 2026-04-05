@@ -1,4 +1,4 @@
-import { Lang, translations as t } from "@/lib/translations";
+import { Lang, translations as t, WHATSAPP_URL } from "@/lib/translations";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function PricingSection({ lang }: { lang: Lang }) {
@@ -39,7 +39,7 @@ export default function PricingSection({ lang }: { lang: Lang }) {
                 ))}
               </div>
               <a
-                href="https://wa.me/351916539331"
+                href={WHATSAPP_URL}
                 className={`block w-full text-center font-body text-[15px] font-bold py-3.5 rounded-xl transition-all ${
                   card.featured
                     ? "bg-orange text-primary-foreground shadow-orange hover:opacity-90"
