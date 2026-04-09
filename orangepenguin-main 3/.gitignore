@@ -1,0 +1,25 @@
+# Environment variables (contain secrets — never commit)
+.env
+.env.local
+.env.*.local
+
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor / OS
+.DS_Store
+.vscode/
+.idea/
+
+# Python (for ask_ai.py)
+__pycache__/
+*.pyc
+venv/
